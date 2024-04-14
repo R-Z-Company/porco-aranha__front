@@ -1,0 +1,1 @@
+export const SpiderVerseSummaryText = "Embark on a new multiversal adventure with Miles Morales! Join an array of familiar and new web-slingers, including Aunt May as Spider-Ma’am, Peni Parker as SP//dr, Spider-Man Noir, and Sheriff Stacy. Miles and his friends must restore the web and bring balance back to the multiverse! Don't miss this epic adventure!";
