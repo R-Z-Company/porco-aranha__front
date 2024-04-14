@@ -1,0 +1,1 @@
+export type ButtonHierarchy = "filled" | "outlined" | "text";

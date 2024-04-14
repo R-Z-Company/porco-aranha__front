@@ -19,8 +19,6 @@ export default function ButtonWrapper({
 
   const buttonStyles = renderButtonHierarchy[hierarchy];
 
-  console.log(buttonStyles);
-
   return (
     <button onClick={onClick} className={buttonStyles}>
       {children}
