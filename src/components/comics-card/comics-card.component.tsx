@@ -2,16 +2,18 @@
 
 import Image, { ImageProps } from "next/image";
 import useNavigateToALink from "@/hooks/use-navigate-to-a-link.hook";
+import { ICreatorBase } from "@/interfaces/creators/creator-base.interface";
+import { Fragment } from "react";
 
 interface ComicsCardProps {
-  src: ImageProps["src"];
-  creators: string[];
+  thumbnail: ImageProps["src"];
+  creators: Pick<ICreatorBase, "name">[];
   title: string;
   id: number;
 }
 
 export default function ComicsCard({
-                                     src,
+                                     thumbnail,
                                      title,
                                      creators,
                                      id,
@@ -21,21 +23,27 @@ export default function ComicsCard({
 
   return (
     <div
-      onClick={() => navigateToALink(`/${id}`)}
+      onClick={() => navigateToALink(`/comics/${id}`)}
       className={"bg-neutral-900 cursor-pointer rounded-md overflow-hidden hover:scale-110 transition-all duration-300"}>
-      <Image src={src} alt={``} width={1000} height={1000}
+      <Image src={thumbnail} alt={`${title}'s cover`} width={1000} height={1000}
              className={"border-b-2 border-red-600"} />
       <div className={"p-3 flex flex-col gap-2"}>
         <h2 className={"text-gray-50 font-medium"}>{title}</h2>
-        <div className={"flex gap-2"}>
+        <div className={"flex gap-2 flex-wrap"}>
           {
-            creators.map((creator, index) => (
-              <p
-                key={index}
-                className={"text-slate-400 font-medium"}
-              >
-                {creator}{index < creators.length - 1 && ","}
-              </p>
+            creators?.map(({ name }, index) => (
+              <Fragment key={index}>
+                {
+                  index < 2 && (
+                    <p
+                      className={"w-fit text-slate-400 font-medium"}
+                    >
+                      {name}{index < 1 && ","}
+                    </p>
+                  )
+                }
+              </Fragment>
+
             ))
           }
         </div>

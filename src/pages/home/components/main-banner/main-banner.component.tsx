@@ -21,6 +21,7 @@ export default function MainBanner() {
         src={MainBannerBackgroundImage}
         alt={"Miles Morales Background Image"}
         className={"w-full h-screen object-cover left-0 top-0"}
+        priority
       />
 
       <div

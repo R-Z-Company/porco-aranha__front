@@ -1,19 +1,21 @@
 import Section from "@/components/section/section.component";
 import Title from "@/components/title/title.component";
 import CardsWrapper from "@/components/cards-wrapper/cards-wrapper.component";
-import {
-  comicsMockupData,
-} from "@/components/comics-card/mockup-data/comics.mockup-data";
 import ComicsCard from "@/components/comics-card/comics-card.component";
+import { IFindAllComics } from "@/interfaces/comics/find-all-comics.interface";
 
-export default function ComicsSection() {
+interface ComicsSectionProps {
+  comicsData: IFindAllComics[];
+}
+
+export default function ComicsSection({ comicsData }: ComicsSectionProps) {
   return (
     <Section>
       <Title title={"Comics"} />
       <CardsWrapper>
         {
-          comicsMockupData.map((comic) => (
-            <ComicsCard {...comic} key={comic.id} />
+          comicsData?.map((comic, index) => (
+            <ComicsCard {...comic} key={index} />
           ))
         }
       </CardsWrapper>

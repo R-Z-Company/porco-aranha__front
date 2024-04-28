@@ -5,28 +5,28 @@ import MilesMoralesLogo from "../../../public/miles-morales-logo.svg";
 import useNavigateToALink from "@/hooks/use-navigate-to-a-link.hook";
 
 interface CharactersCardProps {
-  src: ImageProps["src"];
-  name: string;
+  thumbnail: ImageProps["src"];
+  fullName: string;
   id: number;
 }
 
 export default function CharactersCard({
                                          id,
-                                         src,
-                                         name,
+                                         thumbnail,
+                                         fullName,
                                        }: CharactersCardProps) {
 
   const { navigateToALink } = useNavigateToALink();
 
   return (
     <div
-      onClick={() => navigateToALink(`/${id}`)}
+      onClick={() => navigateToALink(`/characters/${id}`)}
       className={"group cursor-pointer flex bg-neutral-900 rounded-md overflow-hidden transition-all hover:bg-red-600"}>
       <div
         className={"border-r-2 border-red-600 group-hover:scale-110"}>
         <Image
-          src={src}
-          alt={`${name} picture`}
+          src={thumbnail}
+          alt={`${fullName} picture`}
           width={100}
           height={100}
         />
@@ -40,7 +40,7 @@ export default function CharactersCard({
         />
 
         <p className={"font-medium text-gray-50 z-10"}>
-          {name}
+          {fullName}
         </p>
       </div>
     </div>

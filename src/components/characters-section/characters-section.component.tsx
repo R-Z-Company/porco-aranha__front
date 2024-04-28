@@ -2,18 +2,23 @@ import CharactersCard
   from "@/components/characters-card/characters-card.component";
 import Section from "@/components/section/section.component";
 import Title from "@/components/title/title.component";
-import {
-  characters,
-} from "@/pages/home/components/characters-section/mockup-data/characters.mockup-data";
 import CardsWrapper from "@/components/cards-wrapper/cards-wrapper.component";
+import {
+  IFindAllCharacters,
+} from "@/interfaces/characters/find-all-characters.interface";
 
-export default function CharactersSection() {
+interface CharactersSectionProps {
+  charactersData: IFindAllCharacters[];
+}
+
+export default function CharactersSection({ charactersData }: CharactersSectionProps) {
+
   return (
     <Section id={"characters"}>
       <Title title="Characters" />
       <CardsWrapper>
-        {characters.map((character) => (
-          <CharactersCard {...character} key={character.id} />
+        {charactersData?.map((character, index) => (
+          <CharactersCard {...character} key={index} />
         ))}
       </CardsWrapper>
     </Section>

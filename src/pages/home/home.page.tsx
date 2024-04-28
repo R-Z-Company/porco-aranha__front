@@ -1,15 +1,21 @@
+"use client";
+
 import CharactersSection
-  from "@/pages/home/components/characters-section/characters-section.component";
+  from "@/components/characters-section/characters-section.component";
 import MainBanner from "./components/main-banner/main-banner.component";
 import ComicsSection
-  from "@/pages/home/components/comics-section/comics-section.component";
+  from "@/components/comics-section/comics-section.component";
+import useHomeHook from "@/pages/home/use-home.hook";
 
 export default function Home() {
+
+  const { charactersData, comicsData } = useHomeHook();
+
   return (
     <>
       <MainBanner />
-      <CharactersSection />
-      <ComicsSection />
+      <CharactersSection charactersData={charactersData} />
+      <ComicsSection comicsData={comicsData} />
     </>
   );
 }

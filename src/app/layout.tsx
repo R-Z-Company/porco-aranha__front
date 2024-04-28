@@ -21,7 +21,9 @@ export default function RootLayout({ children }: {
     <html lang="en">
     <body className={`${roboto.className} bg-neutral-950`}>
     <TopAppBar />
-    {children}
+    <main className={"pt-[90px]"}>
+      {children}
+    </main>
     </body>
     </html>
   );
