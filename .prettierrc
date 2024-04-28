@@ -20,10 +20,8 @@
   "embeddedLanguageFormatting": "auto",
   "endOfLine": "lf",
   "jsxSingleQuote": false,
-  "pluginSearchDirs":,
   "proseWrap": "preserve",
   "overrides": [],
-  "parser":,
   "cursorOffset": -1,
   "insertPragma": false,
   "bracketSpacing": true

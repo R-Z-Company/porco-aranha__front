@@ -1,0 +1,1 @@
+export type ImageSizeType = "small" | "large";
